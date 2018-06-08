@@ -1,0 +1,691 @@
+{
+  "contractName": "ECRecoveryMock",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "addrRecovered",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "name": "sig",
+          "type": "bytes"
+        }
+      ],
+      "name": "recover",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610273806100206000396000f30060806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166319045a25811461005057806375f2566e146100d7575b600080fd5b34801561005c57600080fd5b5060408051602060046024803582810135601f81018590048502860185019096528585526100ae9583359536956044949193909101919081908401838280828437509497506100ec9650505050505050565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100e357600080fd5b506100ae61022b565b604080517f19045a25000000000000000000000000000000000000000000000000000000008152600481018481526024820192835283516044830152835160009373__ECRecovery____________________________936319045a25938893889391926064019060208501908083838c5b8381101561017557818101518382015260200161015d565b50505050905090810190601f1680156101a25780820380516001836020036101000a031916815260200191505b50935050505060206040518083038186803b1580156101c057600080fd5b505af41580156101d4573d6000803e3d6000fd5b505050506040513d60208110156101ea57600080fd5b50516000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff90921691909117905592915050565b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582049cfda0e4aad9fcc8427c1b9aaddcab3f12a7e20ed67f7e9d2ec2c23f84a78f10029",
+  "deployedBytecode": "0x60806040526004361061004b5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166319045a25811461005057806375f2566e146100d7575b600080fd5b34801561005c57600080fd5b5060408051602060046024803582810135601f81018590048502860185019096528585526100ae9583359536956044949193909101919081908401838280828437509497506100ec9650505050505050565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b3480156100e357600080fd5b506100ae61022b565b604080517f19045a25000000000000000000000000000000000000000000000000000000008152600481018481526024820192835283516044830152835160009373__ECRecovery____________________________936319045a25938893889391926064019060208501908083838c5b8381101561017557818101518382015260200161015d565b50505050905090810190601f1680156101a25780820380516001836020036101000a031916815260200191505b50935050505060206040518083038186803b1580156101c057600080fd5b505af41580156101d4573d6000803e3d6000fd5b505050506040513d60208110156101ea57600080fd5b50516000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff90921691909117905592915050565b60005473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582049cfda0e4aad9fcc8427c1b9aaddcab3f12a7e20ed67f7e9d2ec2c23f84a78f10029",
+  "sourceMap": "57:208:51:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;57:208:51;;;;;;;",
+  "deployedSourceMap": "57:208:51:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;151:111;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;151:111:51;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;151:111:51;;-1:-1:-1;151:111:51;;-1:-1:-1;;;;;;;151:111:51;;;;;;;;;;;;;;;;;;;;118:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;118:28:51;;;;151:111;240:17;;;;;;;;;;;;;;;;;;;;;;;;;;209:7;;240:12;;;;:4;;253:3;;240:17;;;;;;;;;;;;209:7;8:100:-1;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;240:17:51;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;240:17:51;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;240:17:51;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;240:17:51;224:13;:33;;-1:-1:-1;;224:33:51;;;;;;;;;;;151:111;;-1:-1:-1;;151:111:51:o;118:28::-;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\n\nimport \"../ECRecovery.sol\";\n\n\ncontract ECRecoveryMock {\n  using ECRecovery for bytes32;\n\n  address public addrRecovered;\n\n  function recover(bytes32 hash, bytes sig) public returns (address) {\n    addrRecovered = hash.recover(sig);\n  }\n\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ECRecoveryMock.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ECRecoveryMock.sol",
+    "exportedSymbols": {
+      "ECRecoveryMock": [
+        7797
+      ]
+    },
+    "id": 7798,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7773,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:51"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/ECRecovery.sol",
+        "file": "../ECRecovery.sol",
+        "id": 7774,
+        "nodeType": "ImportDirective",
+        "scope": 7798,
+        "sourceUnit": 6324,
+        "src": "27:27:51",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7797,
+        "linearizedBaseContracts": [
+          7797
+        ],
+        "name": "ECRecoveryMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 7777,
+            "libraryName": {
+              "contractScope": null,
+              "id": 7775,
+              "name": "ECRecovery",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6323,
+              "src": "91:10:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ECRecovery_$6323",
+                "typeString": "library ECRecovery"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "85:29:51",
+            "typeName": {
+              "id": 7776,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "106:7:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 7779,
+            "name": "addrRecovered",
+            "nodeType": "VariableDeclaration",
+            "scope": 7797,
+            "src": "118:28:51",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 7778,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "118:7:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7795,
+              "nodeType": "Block",
+              "src": "218:44:51",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7793,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7788,
+                      "name": "addrRecovered",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7779,
+                      "src": "224:13:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7791,
+                          "name": "sig",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7783,
+                          "src": "253:3:51",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 7789,
+                          "name": "hash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7781,
+                          "src": "240:4:51",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "id": 7790,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "recover",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 6322,
+                        "src": "240:12:51",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_pure$_t_bytes32_$_t_bytes_memory_ptr_$returns$_t_address_$bound_to$_t_bytes32_$",
+                          "typeString": "function (bytes32,bytes memory) pure returns (address)"
+                        }
+                      },
+                      "id": 7792,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "240:17:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "224:33:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 7794,
+                  "nodeType": "ExpressionStatement",
+                  "src": "224:33:51"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7796,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "recover",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7781,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "168:12:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7780,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:7:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7783,
+                  "name": "sig",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "182:9:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7782,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:5:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:25:51"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7787,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7786,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "209:7:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7785,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "209:7:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "208:9:51"
+            },
+            "scope": 7797,
+            "src": "151:111:51",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7798,
+        "src": "57:208:51"
+      }
+    ],
+    "src": "0:266:51"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ECRecoveryMock.sol",
+    "exportedSymbols": {
+      "ECRecoveryMock": [
+        7797
+      ]
+    },
+    "id": 7798,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7773,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:51"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/ECRecovery.sol",
+        "file": "../ECRecovery.sol",
+        "id": 7774,
+        "nodeType": "ImportDirective",
+        "scope": 7798,
+        "sourceUnit": 6324,
+        "src": "27:27:51",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7797,
+        "linearizedBaseContracts": [
+          7797
+        ],
+        "name": "ECRecoveryMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 7777,
+            "libraryName": {
+              "contractScope": null,
+              "id": 7775,
+              "name": "ECRecovery",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6323,
+              "src": "91:10:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ECRecovery_$6323",
+                "typeString": "library ECRecovery"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "85:29:51",
+            "typeName": {
+              "id": 7776,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "106:7:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            }
+          },
+          {
+            "constant": false,
+            "id": 7779,
+            "name": "addrRecovered",
+            "nodeType": "VariableDeclaration",
+            "scope": 7797,
+            "src": "118:28:51",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 7778,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "118:7:51",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7795,
+              "nodeType": "Block",
+              "src": "218:44:51",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7793,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7788,
+                      "name": "addrRecovered",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7779,
+                      "src": "224:13:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 7791,
+                          "name": "sig",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7783,
+                          "src": "253:3:51",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 7789,
+                          "name": "hash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 7781,
+                          "src": "240:4:51",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        "id": 7790,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "recover",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 6322,
+                        "src": "240:12:51",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_delegatecall_pure$_t_bytes32_$_t_bytes_memory_ptr_$returns$_t_address_$bound_to$_t_bytes32_$",
+                          "typeString": "function (bytes32,bytes memory) pure returns (address)"
+                        }
+                      },
+                      "id": 7792,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "240:17:51",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "224:33:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 7794,
+                  "nodeType": "ExpressionStatement",
+                  "src": "224:33:51"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7796,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "recover",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7784,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7781,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "168:12:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 7780,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:7:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 7783,
+                  "name": "sig",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "182:9:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 7782,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:5:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:25:51"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7787,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7786,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7796,
+                  "src": "209:7:51",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7785,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "209:7:51",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "208:9:51"
+            },
+            "scope": 7797,
+            "src": "151:111:51",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7798,
+        "src": "57:208:51"
+      }
+    ],
+    "src": "0:266:51"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-01T09:11:30.182Z"
+}

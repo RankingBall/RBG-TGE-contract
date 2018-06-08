@@ -1,0 +1,864 @@
+{
+  "contractName": "InsecureTargetBounty",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalPayments",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "researchers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "target",
+          "type": "address"
+        }
+      ],
+      "name": "claim",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "withdrawPayments",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "createTarget",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "payments",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "claimed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "createdAddress",
+          "type": "address"
+        }
+      ],
+      "name": "TargetCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x608060405260028054600160a060020a03191633179055610712806100256000396000f3006080604052600436106100ad5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416625b448781146100d757806301bc237d146100fe5780631e83409a1461013b5780636103d70b1461015c57806383197ef0146101715780638da5cb5b14610186578063c98165b61461019b578063e2982c21146101b0578063e834a834146101d1578063f2fde38b146101fa578063f5074f411461021b575b60025474010000000000000000000000000000000000000000900460ff16156100d557600080fd5b005b3480156100e357600080fd5b506100ec61023c565b60408051918252519081900360200190f35b34801561010a57600080fd5b5061011f600160a060020a0360043516610242565b60408051600160a060020a039092168252519081900360200190f35b34801561014757600080fd5b506100d5600160a060020a036004351661025d565b34801561016857600080fd5b506100d5610355565b34801561017d57600080fd5b506100d56103d4565b34801561019257600080fd5b5061011f6103f9565b3480156101a757600080fd5b5061011f610408565b3480156101bc57600080fd5b506100ec600160a060020a0360043516610484565b3480156101dd57600080fd5b506101e6610496565b604080519115158252519081900360200190f35b34801561020657600080fd5b506100d5600160a060020a03600435166104b7565b34801561022757600080fd5b506100d5600160a060020a036004351661054c565b60015481565b600360205260009081526040902054600160a060020a031681565b600160a060020a038082166000908152600360205260409020541680151561028457600080fd5b81600160a060020a031663e79487da6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b1580156102db57600080fd5b505af11580156102ef573d6000803e3d6000fd5b505050506040513d602081101561030557600080fd5b50511561031157600080fd5b61031c81303161056f565b50506002805474ff0000000000000000000000000000000000000000191674010000000000000000000000000000000000000000179055565b3360008181526020819052604090205480151561037157600080fd5b303181111561037f57600080fd5b600154610392908263ffffffff6105cb16565b600155600160a060020a0382166000818152602081905260408082208290555183156108fc0291849190818181858888f1935050505015156103d057fe5b5050565b600254600160a060020a031633146103eb57600080fd5b600254600160a060020a0316ff5b600254600160a060020a031681565b6000806104136105dd565b600160a060020a038116600081815260036020908152604091829020805473ffffffffffffffffffffffffffffffffffffffff191633179055815192835290519293507fe62d909feaad4aecbcea8fef32a9b41552373e45f5acb7ce7fc0a997180e7ae592918290030190a1919050565b60006020819052908152604090205481565b60025474010000000000000000000000000000000000000000900460ff1681565b600254600160a060020a031633146104ce57600080fd5b600160a060020a03811615156104e357600080fd5b600254604051600160a060020a038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a36002805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600254600160a060020a0316331461056357600080fd5b80600160a060020a0316ff5b600160a060020a038216600090815260208190526040902054610598908263ffffffff61060916565b600160a060020a0383166000908152602081905260409020556001546105c4908263ffffffff61060916565b6001555050565b6000828211156105d757fe5b50900390565b60006105e761061f565b604051809103906000f080158015610603573d6000803e3d6000fd5b50905090565b60008282018381101561061857fe5b9392505050565b60405160b88061062f8339019056006080604052348015600f57600080fd5b50609a8061001e6000396000f300608060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663e79487da81146043575b600080fd5b348015604e57600080fd5b5060556069565b604080519115158252519081900360200190f35b6000905600a165627a7a72305820eb1aa6b79c0dcd32cb6b1a6ff1ca49111b323a479c27c17c9940161af56b3fff0029a165627a7a72305820ded23f935962a98d346a9fa63fc12bca304dc55dfad11cb29349fc7ed63ed8850029",
+  "deployedBytecode": "0x6080604052600436106100ad5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416625b448781146100d757806301bc237d146100fe5780631e83409a1461013b5780636103d70b1461015c57806383197ef0146101715780638da5cb5b14610186578063c98165b61461019b578063e2982c21146101b0578063e834a834146101d1578063f2fde38b146101fa578063f5074f411461021b575b60025474010000000000000000000000000000000000000000900460ff16156100d557600080fd5b005b3480156100e357600080fd5b506100ec61023c565b60408051918252519081900360200190f35b34801561010a57600080fd5b5061011f600160a060020a0360043516610242565b60408051600160a060020a039092168252519081900360200190f35b34801561014757600080fd5b506100d5600160a060020a036004351661025d565b34801561016857600080fd5b506100d5610355565b34801561017d57600080fd5b506100d56103d4565b34801561019257600080fd5b5061011f6103f9565b3480156101a757600080fd5b5061011f610408565b3480156101bc57600080fd5b506100ec600160a060020a0360043516610484565b3480156101dd57600080fd5b506101e6610496565b604080519115158252519081900360200190f35b34801561020657600080fd5b506100d5600160a060020a03600435166104b7565b34801561022757600080fd5b506100d5600160a060020a036004351661054c565b60015481565b600360205260009081526040902054600160a060020a031681565b600160a060020a038082166000908152600360205260409020541680151561028457600080fd5b81600160a060020a031663e79487da6040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b1580156102db57600080fd5b505af11580156102ef573d6000803e3d6000fd5b505050506040513d602081101561030557600080fd5b50511561031157600080fd5b61031c81303161056f565b50506002805474ff0000000000000000000000000000000000000000191674010000000000000000000000000000000000000000179055565b3360008181526020819052604090205480151561037157600080fd5b303181111561037f57600080fd5b600154610392908263ffffffff6105cb16565b600155600160a060020a0382166000818152602081905260408082208290555183156108fc0291849190818181858888f1935050505015156103d057fe5b5050565b600254600160a060020a031633146103eb57600080fd5b600254600160a060020a0316ff5b600254600160a060020a031681565b6000806104136105dd565b600160a060020a038116600081815260036020908152604091829020805473ffffffffffffffffffffffffffffffffffffffff191633179055815192835290519293507fe62d909feaad4aecbcea8fef32a9b41552373e45f5acb7ce7fc0a997180e7ae592918290030190a1919050565b60006020819052908152604090205481565b60025474010000000000000000000000000000000000000000900460ff1681565b600254600160a060020a031633146104ce57600080fd5b600160a060020a03811615156104e357600080fd5b600254604051600160a060020a038084169216907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a36002805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600254600160a060020a0316331461056357600080fd5b80600160a060020a0316ff5b600160a060020a038216600090815260208190526040902054610598908263ffffffff61060916565b600160a060020a0383166000908152602081905260409020556001546105c4908263ffffffff61060916565b6001555050565b6000828211156105d757fe5b50900390565b60006105e761061f565b604051809103906000f080158015610603573d6000803e3d6000fd5b50905090565b60008282018381101561061857fe5b9392505050565b60405160b88061062f8339019056006080604052348015600f57600080fd5b50609a8061001e6000396000f300608060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663e79487da81146043575b600080fd5b348015604e57600080fd5b5060556069565b604080519115158252519081900360200190f35b6000905600a165627a7a72305820eb1aa6b79c0dcd32cb6b1a6ff1ca49111b323a479c27c17c9940161af56b3fff0029a165627a7a72305820ded23f935962a98d346a9fa63fc12bca304dc55dfad11cb29349fc7ed63ed8850029",
+  "sourceMap": "191:141:17:-;;;501:5:21;:18;;-1:-1:-1;;;;;;501:18:21;509:10;501:18;;;191:141:17;;;;;;",
+  "deployedSourceMap": "191:141:17:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;557:7:7;;;;;;;556:8;548:17;;;;;;191:141:17;321:28:22;;8:9:-1;5:2;;;30:1;27;20:12;5:2;321:28:22;;;;;;;;;;;;;;;;;;;;297:46:7;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;297:46:7;-1:-1:-1;;;;;297:46:7;;;;;;;;;-1:-1:-1;;;;;297:46:7;;;;;;;;;;;;;;1057:258;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1057:258:7;-1:-1:-1;;;;;1057:258:7;;;;;421:285:22;;8:9:-1;5:2;;;30:1;27;20:12;5:2;421:285:22;;;;376:66:14;;8:9:-1;5:2;;;30:1;27;20:12;5:2;376:66:14;;;;238:20:21;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:21;;;;742:182:7;;8:9:-1;5:2;;;30:1;27;20:12;5:2;742:182:7;;;;274:43:22;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;274:43:22;-1:-1:-1;;;;;274:43:22;;;;;:19:7;;8:9:-1;5:2;;;30:1;27;20:12;5:2;274:19:7;;;;;;;;;;;;;;;;;;;;;;832:169:21;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;832:169:21;-1:-1:-1;;;;;832:169:21;;;;;446:96:14;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;446:96:14;-1:-1:-1;;;;;446:96:14;;;;;321:28:22;;;;:::o;297:46:7:-;;;;;;;;;;;;-1:-1:-1;;;;;297:46:7;;:::o;1057:258::-;-1:-1:-1;;;;;1121:19:7;;;1100:18;1121:19;;;:11;:19;;;;;;;1154:15;;;1146:24;;;;;;1225:6;-1:-1:-1;;;;;1225:21:7;;:23;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1225:23:7;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1225:23:7;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;1225:23:7;1224:24;1216:33;;;;;;1255:35;1265:10;1277:4;:12;1255:9;:35::i;:::-;-1:-1:-1;;1296:7:7;:14;;-1:-1:-1;;1296:14:7;;;;;1057:258::o;421:285:22:-;478:10;462:13;512:15;;;;;;;;;;;542:12;;;534:21;;;;;;569:4;:12;:23;-1:-1:-1;569:23:22;561:32;;;;;;616:13;;:26;;634:7;616:26;:17;:26;:::i;:::-;600:13;:42;-1:-1:-1;;;;;648:15:22;;666:1;648:15;;;;;;;;;;;:19;;;681;;;;;;692:7;;681:19;;666:1;681:19;692:7;648:15;681:19;;;;;;;674:27;;;;;;421:285;;:::o;376:66:14:-;653:5:21;;-1:-1:-1;;;;;653:5:21;639:10;:19;631:28;;;;;;431:5:14;;-1:-1:-1;;;;;431:5:14;418:19;238:20:21;;;-1:-1:-1;;;;;238:20:21;;:::o;742:182:7:-;781:6;795:13;818:16;:14;:16::i;:::-;-1:-1:-1;;;;;841:19:7;;;;;;:11;:19;;;;;;;;;:32;;-1:-1:-1;;841:32:7;863:10;841:32;;;879:21;;;;;;;795:40;;-1:-1:-1;879:21:7;;;;;;;;;913:6;742:182;-1:-1:-1;742:182:7:o;274:43:22:-;;;;;;;;;;;;;;:::o;:19:7:-;;;;;;;;;:::o;832:169:21:-;653:5;;-1:-1:-1;;;;;653:5:21;639:10;:19;631:28;;;;;;-1:-1:-1;;;;;908:22:21;;;;900:31;;;;;;958:5;;937:37;;-1:-1:-1;;;;;937:37:21;;;;958:5;;937:37;;958:5;;937:37;980:5;:16;;-1:-1:-1;;980:16:21;-1:-1:-1;;;;;980:16:21;;;;;;;;;;832:169::o;446:96:14:-;653:5:21;;-1:-1:-1;;;;;653:5:21;639:10;:19;631:28;;;;;;526:10:14;-1:-1:-1;;;;;513:24:14;;895:159:22;-1:-1:-1;;;;;976:14:22;;:8;:14;;;;;;;;;;;:26;;995:6;976:26;:18;:26;:::i;:::-;-1:-1:-1;;;;;959:14:22;;:8;:14;;;;;;;;;;:43;1024:13;;:25;;1042:6;1024:25;:17;:25;:::i;:::-;1008:13;:41;-1:-1:-1;;895:159:22:o;836:110:15:-;894:7;916:6;;;;909:14;;;;-1:-1:-1;936:5:15;;;836:110::o;235:95:17:-;279:7;301:24;;:::i;:::-;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;301:24:17;294:31;;235:95;:::o;1008:129:15:-;1066:7;1093:5;;;1111:6;;;;1104:14;;;;1131:1;1008:129;-1:-1:-1;;;1008:129:15:o;191:141:17:-;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport {Bounty, Target} from \"../Bounty.sol\";\n\n\ncontract InsecureTargetMock is Target {\n  function checkInvariant() public returns(bool) {\n    return false;\n  }\n}\n\n\ncontract InsecureTargetBounty is Bounty {\n  function deployContract() internal returns (address) {\n    return new InsecureTargetMock();\n  }\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/InsecureTargetBounty.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/InsecureTargetBounty.sol",
+    "exportedSymbols": {
+      "InsecureTargetBounty": [
+        2215
+      ],
+      "InsecureTargetMock": [
+        2202
+      ]
+    },
+    "id": 2216,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2188,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:17"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/Bounty.sol",
+        "file": "../Bounty.sol",
+        "id": 2191,
+        "nodeType": "ImportDirective",
+        "scope": 2216,
+        "sourceUnit": 1344,
+        "src": "26:45:17",
+        "symbolAliases": [
+          {
+            "foreign": 2189,
+            "local": null
+          },
+          {
+            "foreign": 2190,
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2192,
+              "name": "Target",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1343,
+              "src": "105:6:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Target_$1343",
+                "typeString": "contract Target"
+              }
+            },
+            "id": 2193,
+            "nodeType": "InheritanceSpecifier",
+            "src": "105:6:17"
+          }
+        ],
+        "contractDependencies": [
+          1343
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2202,
+        "linearizedBaseContracts": [
+          2202,
+          1343
+        ],
+        "name": "InsecureTargetMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2200,
+              "nodeType": "Block",
+              "src": "163:23:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "66616c7365",
+                    "id": 2198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "176:5:17",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "false"
+                  },
+                  "functionReturnParameters": 2197,
+                  "id": 2199,
+                  "nodeType": "Return",
+                  "src": "169:12:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2201,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "checkInvariant",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2194,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "139:2:17"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2197,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2196,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2201,
+                  "src": "157:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2195,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "156:6:17"
+            },
+            "scope": 2202,
+            "src": "116:70:17",
+            "stateMutability": "nonpayable",
+            "superFunction": 1342,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2216,
+        "src": "74:114:17"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2203,
+              "name": "Bounty",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1337,
+              "src": "224:6:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Bounty_$1337",
+                "typeString": "contract Bounty"
+              }
+            },
+            "id": 2204,
+            "nodeType": "InheritanceSpecifier",
+            "src": "224:6:17"
+          }
+        ],
+        "contractDependencies": [
+          1337,
+          2059,
+          2202,
+          2377,
+          2464
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2215,
+        "linearizedBaseContracts": [
+          2215,
+          1337,
+          2059,
+          2377,
+          2464
+        ],
+        "name": "InsecureTargetBounty",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2213,
+              "nodeType": "Block",
+              "src": "288:42:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 2210,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "301:22:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_InsecureTargetMock_$2202_$",
+                        "typeString": "function () returns (contract InsecureTargetMock)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 2209,
+                        "name": "InsecureTargetMock",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 2202,
+                        "src": "305:18:17",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_InsecureTargetMock_$2202",
+                          "typeString": "contract InsecureTargetMock"
+                        }
+                      }
+                    },
+                    "id": 2211,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "301:24:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_InsecureTargetMock_$2202",
+                      "typeString": "contract InsecureTargetMock"
+                    }
+                  },
+                  "functionReturnParameters": 2208,
+                  "id": 2212,
+                  "nodeType": "Return",
+                  "src": "294:31:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2214,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "deployContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2205,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "258:2:17"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2208,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2207,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2214,
+                  "src": "279:7:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2206,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "279:7:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "278:9:17"
+            },
+            "scope": 2215,
+            "src": "235:95:17",
+            "stateMutability": "nonpayable",
+            "superFunction": 1336,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2216,
+        "src": "191:141:17"
+      }
+    ],
+    "src": "0:333:17"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/InsecureTargetBounty.sol",
+    "exportedSymbols": {
+      "InsecureTargetBounty": [
+        2215
+      ],
+      "InsecureTargetMock": [
+        2202
+      ]
+    },
+    "id": 2216,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2188,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:17"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/Bounty.sol",
+        "file": "../Bounty.sol",
+        "id": 2191,
+        "nodeType": "ImportDirective",
+        "scope": 2216,
+        "sourceUnit": 1344,
+        "src": "26:45:17",
+        "symbolAliases": [
+          {
+            "foreign": 2189,
+            "local": null
+          },
+          {
+            "foreign": 2190,
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2192,
+              "name": "Target",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1343,
+              "src": "105:6:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Target_$1343",
+                "typeString": "contract Target"
+              }
+            },
+            "id": 2193,
+            "nodeType": "InheritanceSpecifier",
+            "src": "105:6:17"
+          }
+        ],
+        "contractDependencies": [
+          1343
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2202,
+        "linearizedBaseContracts": [
+          2202,
+          1343
+        ],
+        "name": "InsecureTargetMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2200,
+              "nodeType": "Block",
+              "src": "163:23:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "66616c7365",
+                    "id": 2198,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "176:5:17",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "false"
+                  },
+                  "functionReturnParameters": 2197,
+                  "id": 2199,
+                  "nodeType": "Return",
+                  "src": "169:12:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2201,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "checkInvariant",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2194,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "139:2:17"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2197,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2196,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2201,
+                  "src": "157:4:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2195,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:4:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "156:6:17"
+            },
+            "scope": 2202,
+            "src": "116:70:17",
+            "stateMutability": "nonpayable",
+            "superFunction": 1342,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2216,
+        "src": "74:114:17"
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 2203,
+              "name": "Bounty",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1337,
+              "src": "224:6:17",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Bounty_$1337",
+                "typeString": "contract Bounty"
+              }
+            },
+            "id": 2204,
+            "nodeType": "InheritanceSpecifier",
+            "src": "224:6:17"
+          }
+        ],
+        "contractDependencies": [
+          1337,
+          2059,
+          2202,
+          2377,
+          2464
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2215,
+        "linearizedBaseContracts": [
+          2215,
+          1337,
+          2059,
+          2377,
+          2464
+        ],
+        "name": "InsecureTargetBounty",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2213,
+              "nodeType": "Block",
+              "src": "288:42:17",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 2210,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "301:22:17",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$__$returns$_t_contract$_InsecureTargetMock_$2202_$",
+                        "typeString": "function () returns (contract InsecureTargetMock)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 2209,
+                        "name": "InsecureTargetMock",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 2202,
+                        "src": "305:18:17",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_InsecureTargetMock_$2202",
+                          "typeString": "contract InsecureTargetMock"
+                        }
+                      }
+                    },
+                    "id": 2211,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "301:24:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_InsecureTargetMock_$2202",
+                      "typeString": "contract InsecureTargetMock"
+                    }
+                  },
+                  "functionReturnParameters": 2208,
+                  "id": 2212,
+                  "nodeType": "Return",
+                  "src": "294:31:17"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2214,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "deployContract",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2205,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "258:2:17"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 2208,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2207,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2214,
+                  "src": "279:7:17",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2206,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "279:7:17",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "278:9:17"
+            },
+            "scope": 2215,
+            "src": "235:95:17",
+            "stateMutability": "nonpayable",
+            "superFunction": 1336,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2216,
+        "src": "191:141:17"
+      }
+    ],
+    "src": "0:333:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-03T08:58:08.956Z"
+}

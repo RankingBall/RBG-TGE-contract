@@ -1,0 +1,1272 @@
+{
+  "contractName": "DayLimitMock",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "dailyLimit",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSpending",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "lastDay",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "spentToday",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "attemptSpend",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newLimit",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDailyLimit",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "resetSpentToday",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060405160208061027e8339810160405251600081905580610039640100000000610048810204565b60025550506000600355610051565b62015180420490565b61021e806100606000396000f3006080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416635c52c2f5811461008757806367eeba0c1461009e5780636997bcab146100c55780636b0c932d146100da578063b20d30a9146100ef578063b349f6c714610107578063f059cf2b1461011f575b600080fd5b34801561009357600080fd5b5061009c610134565b005b3480156100aa57600080fd5b506100b361013e565b60408051918252519081900360200190f35b3480156100d157600080fd5b506100b3610144565b3480156100e657600080fd5b506100b361014a565b3480156100fb57600080fd5b5061009c600435610150565b34801561011357600080fd5b5061009c60043561015c565b34801561012b57600080fd5b506100b361017d565b61013c610183565b565b60005481565b60035481565b60025481565b6101598161018a565b50565b806101668161018f565b151561017157600080fd5b50600380549091019055565b60015481565b6000600155565b600055565b600060025461019c6101e9565b11156101b35760006001556101af6101e9565b6002555b600154828101108015906101cd5750600054826001540111155b156101e0575060018054820181556101e4565b5060005b919050565b620151804204905600a165627a7a72305820e7a40146bfb81153c33ce9b42afc34701a8ab5ffead08a52d50137863173b2b80029",
+  "deployedBytecode": "0x6080604052600436106100825763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416635c52c2f5811461008757806367eeba0c1461009e5780636997bcab146100c55780636b0c932d146100da578063b20d30a9146100ef578063b349f6c714610107578063f059cf2b1461011f575b600080fd5b34801561009357600080fd5b5061009c610134565b005b3480156100aa57600080fd5b506100b361013e565b60408051918252519081900360200190f35b3480156100d157600080fd5b506100b3610144565b3480156100e657600080fd5b506100b361014a565b3480156100fb57600080fd5b5061009c600435610150565b34801561011357600080fd5b5061009c60043561015c565b34801561012b57600080fd5b506100b361017d565b61013c610183565b565b60005481565b60035481565b60025481565b6101598161018a565b50565b806101668161018f565b151561017157600080fd5b50600380549091019055565b60015481565b6000600155565b600055565b600060025461019c6101e9565b11156101b35760006001556101af6101e9565b6002555b600154828101108015906101cd5750600054826001540111155b156101e0575060018054820181556101e4565b5060005b919050565b620151804204905600a165627a7a72305820e7a40146bfb81153c33ce9b42afc34701a8ab5ffead08a52d50137863173b2b80029",
+  "sourceMap": "54:430:49:-;;;125:90;8:9:-1;5:2;;;30:1;27;20:12;5:2;125:90:49;;;;;;;;;;;;;537:10:27;:19;;;125:90:49;572:7:27;:5;;;;:7;:::i;:::-;562;:17;-1:-1:-1;;209:1:49;193:13;:17;54:430;;1852:78:27;1919:6;1913:3;:12;;1852:78::o;54:430:49:-;;;;;;;",
+  "deployedSourceMap": "54:430:49:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;416:65;;8:9:-1;5:2;;;30:1;27;20:12;5:2;416:65:49;;;;;;270:25:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;270:25:27;;;;;;;;;;;;;;;;;;;;92:28:49;;8:9:-1;5:2;;;30:1;27;20:12;5:2;92:28:49;;;;328:22:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;328:22:27;;;;325:87:49;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;325:87:49;;;;;219:102;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;219:102:49;;;;;299:25:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;299:25:27;;;;416:65:49;458:18;:16;:18::i;:::-;416:65::o;270:25:27:-;;;;:::o;92:28:49:-;;;;:::o;328:22:27:-;;;;:::o;325:87:49:-;382:25;397:9;382:14;:25::i;:::-;325:87;:::o;219:102::-;279:6;2041:18:27;2052:6;2041:10;:18::i;:::-;2033:27;;;;;;;;-1:-1:-1;293:13:49;:23;;;;;;;219:102::o;299:25:27:-;;;;:::o;887:62::-;943:1;930:10;:14;887:62::o;737:85::-;795:10;:22;737:85::o;1228:515::-;1282:4;1379:7;;1369;:5;:7::i;:::-;:17;1365:77;;;1409:1;1396:10;:14;1428:7;:5;:7::i;:::-;1418;:17;1365:77;1618:10;;1595:19;;;:33;;;;:70;;;1655:10;;1645:6;1632:10;;:19;:33;;1595:70;1591:130;;;-1:-1:-1;1675:10:27;:20;;;;;;1703:11;;1591:130;-1:-1:-1;1733:5:27;1228:515;;;;:::o;1852:78::-;1919:6;1913:3;:12;;1852:78::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"../DayLimit.sol\";\n\n\ncontract DayLimitMock is DayLimit {\n  uint256 public totalSpending;\n\n  function DayLimitMock(uint256 _value) public DayLimit(_value) {\n    totalSpending = 0;\n  }\n\n  function attemptSpend(uint256 _value) external limitedDaily(_value) {\n    totalSpending += _value;\n  }\n\n  function setDailyLimit(uint256 _newLimit) external {\n    _setDailyLimit(_newLimit);\n  }\n\n  function resetSpentToday() external {\n    _resetSpentToday();\n  }\n\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/DayLimitMock.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/DayLimitMock.sol",
+    "exportedSymbols": {
+      "DayLimitMock": [
+        7747
+      ]
+    },
+    "id": 7748,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7698,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:49"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/DayLimit.sol",
+        "file": "../DayLimit.sol",
+        "id": 7699,
+        "nodeType": "ImportDirective",
+        "scope": 7748,
+        "sourceUnit": 6259,
+        "src": "26:25:49",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7700,
+              "name": "DayLimit",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6258,
+              "src": "79:8:49",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DayLimit_$6258",
+                "typeString": "contract DayLimit"
+              }
+            },
+            "id": 7701,
+            "nodeType": "InheritanceSpecifier",
+            "src": "79:8:49"
+          }
+        ],
+        "contractDependencies": [
+          6258
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7747,
+        "linearizedBaseContracts": [
+          7747,
+          6258
+        ],
+        "name": "DayLimitMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 7703,
+            "name": "totalSpending",
+            "nodeType": "VariableDeclaration",
+            "scope": 7747,
+            "src": "92:28:49",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 7702,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "92:7:49",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7715,
+              "nodeType": "Block",
+              "src": "187:28:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7713,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7711,
+                      "name": "totalSpending",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7703,
+                      "src": "193:13:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 7712,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "209:1:49",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "193:17:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 7714,
+                  "nodeType": "ExpressionStatement",
+                  "src": "193:17:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7716,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 7708,
+                    "name": "_value",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7705,
+                    "src": "179:6:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 7709,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 7707,
+                  "name": "DayLimit",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6258,
+                  "src": "170:8:49",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_DayLimit_$6258_$",
+                    "typeString": "type(contract DayLimit)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "170:16:49"
+              }
+            ],
+            "name": "DayLimitMock",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7706,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7705,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7716,
+                  "src": "147:14:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7704,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "146:16:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7710,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "187:0:49"
+            },
+            "scope": 7747,
+            "src": "125:90:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7728,
+              "nodeType": "Block",
+              "src": "287:34:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7726,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7724,
+                      "name": "totalSpending",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7703,
+                      "src": "293:13:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 7725,
+                      "name": "_value",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7718,
+                      "src": "310:6:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "293:23:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 7727,
+                  "nodeType": "ExpressionStatement",
+                  "src": "293:23:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7729,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 7721,
+                    "name": "_value",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7718,
+                    "src": "279:6:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 7722,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 7720,
+                  "name": "limitedDaily",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6257,
+                  "src": "266:12:49",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "266:20:49"
+              }
+            ],
+            "name": "attemptSpend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7719,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7718,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7729,
+                  "src": "241:14:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7717,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:16:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7723,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "287:0:49"
+            },
+            "scope": 7747,
+            "src": "219:102:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 7738,
+              "nodeType": "Block",
+              "src": "376:36:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7735,
+                        "name": "_newLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7731,
+                        "src": "397:9:49",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 7734,
+                      "name": "_setDailyLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6183,
+                      "src": "382:14:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 7736,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "382:25:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7737,
+                  "nodeType": "ExpressionStatement",
+                  "src": "382:25:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7739,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setDailyLimit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7732,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7731,
+                  "name": "_newLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7739,
+                  "src": "348:17:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7730,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:19:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7733,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:0:49"
+            },
+            "scope": 7747,
+            "src": "325:87:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 7745,
+              "nodeType": "Block",
+              "src": "452:29:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 7742,
+                      "name": "_resetSpentToday",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6191,
+                      "src": "458:16:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 7743,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "458:18:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7744,
+                  "nodeType": "ExpressionStatement",
+                  "src": "458:18:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7746,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "resetSpentToday",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7740,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "440:2:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7741,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "452:0:49"
+            },
+            "scope": 7747,
+            "src": "416:65:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7748,
+        "src": "54:430:49"
+      }
+    ],
+    "src": "0:485:49"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/DayLimitMock.sol",
+    "exportedSymbols": {
+      "DayLimitMock": [
+        7747
+      ]
+    },
+    "id": 7748,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7698,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:49"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/DayLimit.sol",
+        "file": "../DayLimit.sol",
+        "id": 7699,
+        "nodeType": "ImportDirective",
+        "scope": 7748,
+        "sourceUnit": 6259,
+        "src": "26:25:49",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7700,
+              "name": "DayLimit",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6258,
+              "src": "79:8:49",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DayLimit_$6258",
+                "typeString": "contract DayLimit"
+              }
+            },
+            "id": 7701,
+            "nodeType": "InheritanceSpecifier",
+            "src": "79:8:49"
+          }
+        ],
+        "contractDependencies": [
+          6258
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7747,
+        "linearizedBaseContracts": [
+          7747,
+          6258
+        ],
+        "name": "DayLimitMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 7703,
+            "name": "totalSpending",
+            "nodeType": "VariableDeclaration",
+            "scope": 7747,
+            "src": "92:28:49",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 7702,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "92:7:49",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7715,
+              "nodeType": "Block",
+              "src": "187:28:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7713,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7711,
+                      "name": "totalSpending",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7703,
+                      "src": "193:13:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 7712,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "209:1:49",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "193:17:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 7714,
+                  "nodeType": "ExpressionStatement",
+                  "src": "193:17:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7716,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 7708,
+                    "name": "_value",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7705,
+                    "src": "179:6:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 7709,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 7707,
+                  "name": "DayLimit",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6258,
+                  "src": "170:8:49",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_DayLimit_$6258_$",
+                    "typeString": "type(contract DayLimit)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "170:16:49"
+              }
+            ],
+            "name": "DayLimitMock",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7706,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7705,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7716,
+                  "src": "147:14:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7704,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "146:16:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7710,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "187:0:49"
+            },
+            "scope": 7747,
+            "src": "125:90:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7728,
+              "nodeType": "Block",
+              "src": "287:34:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 7726,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 7724,
+                      "name": "totalSpending",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7703,
+                      "src": "293:13:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 7725,
+                      "name": "_value",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7718,
+                      "src": "310:6:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "293:23:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 7727,
+                  "nodeType": "ExpressionStatement",
+                  "src": "293:23:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7729,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 7721,
+                    "name": "_value",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 7718,
+                    "src": "279:6:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 7722,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 7720,
+                  "name": "limitedDaily",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6257,
+                  "src": "266:12:49",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "266:20:49"
+              }
+            ],
+            "name": "attemptSpend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7719,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7718,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7729,
+                  "src": "241:14:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7717,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "241:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "240:16:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7723,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "287:0:49"
+            },
+            "scope": 7747,
+            "src": "219:102:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 7738,
+              "nodeType": "Block",
+              "src": "376:36:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7735,
+                        "name": "_newLimit",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7731,
+                        "src": "397:9:49",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 7734,
+                      "name": "_setDailyLimit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6183,
+                      "src": "382:14:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 7736,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "382:25:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7737,
+                  "nodeType": "ExpressionStatement",
+                  "src": "382:25:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7739,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "setDailyLimit",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7732,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7731,
+                  "name": "_newLimit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7739,
+                  "src": "348:17:49",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 7730,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "348:7:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "347:19:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7733,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "376:0:49"
+            },
+            "scope": 7747,
+            "src": "325:87:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 7745,
+              "nodeType": "Block",
+              "src": "452:29:49",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "id": 7742,
+                      "name": "_resetSpentToday",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6191,
+                      "src": "458:16:49",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 7743,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "458:18:49",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7744,
+                  "nodeType": "ExpressionStatement",
+                  "src": "458:18:49"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7746,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "resetSpentToday",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7740,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "440:2:49"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7741,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "452:0:49"
+            },
+            "scope": 7747,
+            "src": "416:65:49",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7748,
+        "src": "54:430:49"
+      }
+    ],
+    "src": "0:485:49"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-01T09:11:30.181Z"
+}

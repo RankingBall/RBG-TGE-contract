@@ -1,0 +1,820 @@
+{
+  "contractName": "POSMiniMeToken",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "interfaceID",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "creationBlock",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newController",
+          "type": "address"
+        }
+      ],
+      "name": "changeController",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "balanceOfAt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnershipTo",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "version",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_cloneTokenName",
+          "type": "string"
+        },
+        {
+          "name": "_cloneDecimalUnits",
+          "type": "uint8"
+        },
+        {
+          "name": "_cloneTokenSymbol",
+          "type": "string"
+        },
+        {
+          "name": "_snapshotBlock",
+          "type": "uint256"
+        },
+        {
+          "name": "_transfersEnabled",
+          "type": "bool"
+        }
+      ],
+      "name": "createCloneToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "parentToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "generateTokens",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "totalSupplyAt",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "transfersEnabled",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "parentSnapShotBlock",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "name": "_extraData",
+          "type": "bytes"
+        }
+      ],
+      "name": "approveAndCall",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "destroyTokens",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "name": "remaining",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "claimTokens",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "tokenFactory",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_transfersEnabled",
+          "type": "bool"
+        }
+      ],
+      "name": "enableTransfers",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "controller",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_controller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimedTokens",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_cloneToken",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_snapshotBlock",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewCloneToken",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"./BalanceUpdatableMiniMeToken.sol\";\nimport \"./POSTokenAPI.sol\";\n\n\n/// @dev POSMiniMeToken inherits BalanceUpdatableMiniMeToken to update token balances\n///  inside `onTransfer` function, POSMiniMeTokenAPI to provdie common\n///  interface for POSController.\n// solium-disable no-empty-blocks\ncontract POSMiniMeToken is BalanceUpdatableMiniMeToken, POSMiniMeTokenAPI {}\n",
+  "sourcePath": "pos-controller/contracts/POSMiniMeToken.sol",
+  "ast": {
+    "absolutePath": "pos-controller/contracts/POSMiniMeToken.sol",
+    "exportedSymbols": {
+      "POSMiniMeToken": [
+        7734
+      ]
+    },
+    "id": 7735,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7727,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:41"
+      },
+      {
+        "absolutePath": "pos-controller/contracts/BalanceUpdatableMiniMeToken.sol",
+        "file": "./BalanceUpdatableMiniMeToken.sol",
+        "id": 7728,
+        "nodeType": "ImportDirective",
+        "scope": 7735,
+        "sourceUnit": 7238,
+        "src": "26:43:41",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "pos-controller/contracts/POSTokenAPI.sol",
+        "file": "./POSTokenAPI.sol",
+        "id": 7729,
+        "nodeType": "ImportDirective",
+        "scope": 7735,
+        "sourceUnit": 7975,
+        "src": "70:27:41",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7730,
+              "name": "BalanceUpdatableMiniMeToken",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7237,
+              "src": "352:27:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BalanceUpdatableMiniMeToken_$7237",
+                "typeString": "contract BalanceUpdatableMiniMeToken"
+              }
+            },
+            "id": 7731,
+            "nodeType": "InheritanceSpecifier",
+            "src": "352:27:41"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7732,
+              "name": "POSMiniMeTokenAPI",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7974,
+              "src": "381:17:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_POSMiniMeTokenAPI_$7974",
+                "typeString": "contract POSMiniMeTokenAPI"
+              }
+            },
+            "id": 7733,
+            "nodeType": "InheritanceSpecifier",
+            "src": "381:17:41"
+          }
+        ],
+        "contractDependencies": [
+          5044,
+          6074,
+          7237,
+          7974,
+          7989
+        ],
+        "contractKind": "contract",
+        "documentation": "@dev POSMiniMeToken inherits BalanceUpdatableMiniMeToken to update token balances\n  inside `onTransfer` function, POSMiniMeTokenAPI to provdie common\n  interface for POSController.",
+        "fullyImplemented": false,
+        "id": 7734,
+        "linearizedBaseContracts": [
+          7734,
+          7974,
+          7237,
+          6074,
+          5044,
+          7989
+        ],
+        "name": "POSMiniMeToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 7735,
+        "src": "325:76:41"
+      }
+    ],
+    "src": "0:402:41"
+  },
+  "legacyAST": {
+    "absolutePath": "pos-controller/contracts/POSMiniMeToken.sol",
+    "exportedSymbols": {
+      "POSMiniMeToken": [
+        7734
+      ]
+    },
+    "id": 7735,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7727,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:41"
+      },
+      {
+        "absolutePath": "pos-controller/contracts/BalanceUpdatableMiniMeToken.sol",
+        "file": "./BalanceUpdatableMiniMeToken.sol",
+        "id": 7728,
+        "nodeType": "ImportDirective",
+        "scope": 7735,
+        "sourceUnit": 7238,
+        "src": "26:43:41",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "pos-controller/contracts/POSTokenAPI.sol",
+        "file": "./POSTokenAPI.sol",
+        "id": 7729,
+        "nodeType": "ImportDirective",
+        "scope": 7735,
+        "sourceUnit": 7975,
+        "src": "70:27:41",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7730,
+              "name": "BalanceUpdatableMiniMeToken",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7237,
+              "src": "352:27:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BalanceUpdatableMiniMeToken_$7237",
+                "typeString": "contract BalanceUpdatableMiniMeToken"
+              }
+            },
+            "id": 7731,
+            "nodeType": "InheritanceSpecifier",
+            "src": "352:27:41"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7732,
+              "name": "POSMiniMeTokenAPI",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7974,
+              "src": "381:17:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_POSMiniMeTokenAPI_$7974",
+                "typeString": "contract POSMiniMeTokenAPI"
+              }
+            },
+            "id": 7733,
+            "nodeType": "InheritanceSpecifier",
+            "src": "381:17:41"
+          }
+        ],
+        "contractDependencies": [
+          5044,
+          6074,
+          7237,
+          7974,
+          7989
+        ],
+        "contractKind": "contract",
+        "documentation": "@dev POSMiniMeToken inherits BalanceUpdatableMiniMeToken to update token balances\n  inside `onTransfer` function, POSMiniMeTokenAPI to provdie common\n  interface for POSController.",
+        "fullyImplemented": false,
+        "id": 7734,
+        "linearizedBaseContracts": [
+          7734,
+          7974,
+          7237,
+          6074,
+          5044,
+          7989
+        ],
+        "name": "POSMiniMeToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 7735,
+        "src": "325:76:41"
+      }
+    ],
+    "src": "0:402:41"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-07T12:04:18.375Z"
+}

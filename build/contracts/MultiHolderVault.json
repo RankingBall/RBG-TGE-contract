@@ -1,0 +1,1613 @@
+{
+  "contractName": "MultiHolderVault",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "initialized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "MAX_HOLDERS",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "holders",
+      "outputs": [
+        {
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "name": "ratio",
+          "type": "uint96"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "wallet",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getHolderCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "coeff",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "enableRefunds",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "state",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "deposited",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_addrs",
+          "type": "address[]"
+        },
+        {
+          "name": "_ratios",
+          "type": "uint96[]"
+        }
+      ],
+      "name": "initHolders",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "investor",
+          "type": "address"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "distributed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "investor",
+          "type": "address"
+        }
+      ],
+      "name": "refund",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_wallet",
+          "type": "address"
+        },
+        {
+          "name": "_ratioCoeff",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "Closed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "RefundsEnabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "beneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "weiAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Refunded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "Distributed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "close",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50604051604080610c7d83398101604052805160209091015160008054600160a060020a03191633179055818180151561004957600080fd5b600155600160a060020a038116151561006157600080fd5b60058054600160a060020a031916600160a060020a03929092169190911760a060020a60ff021916905550610be090508061009d6000396000f3006080604052600436106100e55763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663158ef93e81146100ea57806322e12720146101135780632a11ced01461013e57806343d726d614610186578063521eb2731461019d5780637136982b146101ce57806387b261ad146101f55780638c52dc411461020a5780638da5cb5b1461021f578063c19d93fb14610234578063cb13cddb1461026d578063ec5dfaa21461028e578063f2fde38b1461031c578063f340fa011461033d578063f84b903e14610351578063fa89401a14610366575b600080fd5b3480156100f657600080fd5b506100ff610387565b604080519115158252519081900360200190f35b34801561011f57600080fd5b50610128610395565b6040805160ff9092168252519081900360200190f35b34801561014a57600080fd5b5061015660043561039a565b60408051600160a060020a0390931683526bffffffffffffffffffffffff90911660208301528051918290030190f35b34801561019257600080fd5b5061019b6103d8565b005b3480156101a957600080fd5b506101b261043b565b60408051600160a060020a039092168252519081900360200190f35b3480156101da57600080fd5b506101e361044a565b60408051918252519081900360200190f35b34801561020157600080fd5b506101e3610450565b34801561021657600080fd5b5061019b610456565b34801561022b57600080fd5b506101b26104e0565b34801561024057600080fd5b506102496104ef565b6040518082600281111561025957fe5b60ff16815260200191505060405180910390f35b34801561027957600080fd5b506101e3600160a060020a03600435166104ff565b34801561029a57600080fd5b506040805160206004803580820135838102808601850190965280855261019b95369593946024949385019291829185019084908082843750506040805187358901803560208181028481018201909552818452989b9a9989019892975090820195509350839250850190849080828437509497506105119650505050505050565b34801561032857600080fd5b5061019b600160a060020a03600435166106d3565b61019b600160a060020a0360043516610767565b34801561035d57600080fd5b506100ff6107e7565b34801561037257600080fd5b5061019b600160a060020a03600435166107f0565b600254610100900460ff1681565b604081565b60038054829081106103a857fe5b600091825260209091200154600160a060020a038116915060a060020a90046bffffffffffffffffffffffff1682565b600054600160a060020a031633146103ef57600080fd5b600060055460a060020a900460ff16600281111561040957fe5b1461041357600080fd5b600254610100900460ff16151561042957600080fd5b6104316108a5565b610439610a8d565b565b600554600160a060020a031681565b60035490565b60015481565b600054600160a060020a0316331461046d57600080fd5b600060055460a060020a900460ff16600281111561048757fe5b1461049157600080fd5b6005805474ff0000000000000000000000000000000000000000191660a060020a1790556040517f599d8e5a83cffb867d051598c4d70e805d59802d8081c1c7d6dffc5b6aca2b8990600090a1565b600054600160a060020a031681565b60055460a060020a900460ff1681565b60046020526000908152604090205481565b600080548190600160a060020a0316331461052b57600080fd5b600254610100900460ff161561054057600080fd5b6003541561054d57600080fd5b8351151561055a57600080fd5b83516040101561056957600080fd5b825184511461057757600080fd5b5060005b83518160ff1610156106af578351600090859060ff841690811061059b57fe5b60209081029091010151600160a060020a03161461066c5760036040805190810160405280868460ff168151811015156105d157fe5b90602001906020020151600160a060020a03168152602001858460ff168151811015156105fa57fe5b60209081029091018101516bffffffffffffffffffffffff9081169092528354600181018555600094855293819020835194018054939091015190911660a060020a02600160a060020a0393841673ffffffffffffffffffffffffffffffffffffffff19909316929092179092161790555b6106a5838260ff1681518110151561068057fe5b6020908102909101015183906bffffffffffffffffffffffff1663ffffffff610b6316565b915060010161057b565b6001548211156106be57600080fd5b50506002805461ff0019166101001790555050565b600054600160a060020a031633146106ea57600080fd5b600160a060020a03811615156106ff57600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600054600160a060020a0316331461077e57600080fd5b600060055460a060020a900460ff16600281111561079857fe5b146107a257600080fd5b600160a060020a0381166000908152600460205260409020546107cb903463ffffffff610b6316565b600160a060020a03909116600090815260046020526040902055565b60025460ff1681565b6000600160055460a060020a900460ff16600281111561080c57fe5b1461081657600080fd5b50600160a060020a038116600081815260046020526040808220805490839055905190929183156108fc02918491818181858888f19350505050158015610861573d6000803e3d6000fd5b50604080518281529051600160a060020a038416917fd7dee2702d63ad89917b6a4da9981c90c4d24f8c2bdfd64c604ecae57d8d0651919081900360200190a25050565b6002546000908190819060ff161561091e57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f416c726561647920646973747269627574656400000000000000000000000000604482015290519081900360640190fd5b303192506000831161099157604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601660248201527f4e6f20657468657220746f206469737472696275746500000000000000000000604482015290519081900360640190fd5b6002805460ff19166001179055600091505b60035460ff83161015610a5f576109ff6001546109f360038560ff168154811015156109cb57fe5b600091825260209091200154869060a060020a90046bffffffffffffffffffffffff16610b76565b9063ffffffff610b9f16565b905060038260ff16815481101515610a1357fe5b6000918252602082200154604051600160a060020a039091169183156108fc02918491818181858888f19350505050158015610a53573d6000803e3d6000fd5b506001909101906109a3565b6040517fb8b570f14eb44ed11fb6b2ac2ff61ceb5b29da5ae60d33184ae20b08f3a47c8990600090a1505050565b600054600160a060020a03163314610aa457600080fd5b600060055460a060020a900460ff166002811115610abe57fe5b14610ac857600080fd5b6005805474ff00000000000000000000000000000000000000001916740200000000000000000000000000000000000000001790556040517f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a90600090a1600554604051600160a060020a0390911690303180156108fc02916000818181858888f19350505050158015610b60573d6000803e3d6000fd5b50565b81810182811015610b7057fe5b92915050565b6000821515610b8757506000610b70565b50818102818382811515610b9757fe5b0414610b7057fe5b60008183811515610bac57fe5b0493925050505600a165627a7a72305820ca64f99371fe970c533c3f6f8bbf9f4f22c9fb72b631e9c41c555dbc3e9351de0029",
+  "deployedBytecode": "0x6080604052600436106100e55763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663158ef93e81146100ea57806322e12720146101135780632a11ced01461013e57806343d726d614610186578063521eb2731461019d5780637136982b146101ce57806387b261ad146101f55780638c52dc411461020a5780638da5cb5b1461021f578063c19d93fb14610234578063cb13cddb1461026d578063ec5dfaa21461028e578063f2fde38b1461031c578063f340fa011461033d578063f84b903e14610351578063fa89401a14610366575b600080fd5b3480156100f657600080fd5b506100ff610387565b604080519115158252519081900360200190f35b34801561011f57600080fd5b50610128610395565b6040805160ff9092168252519081900360200190f35b34801561014a57600080fd5b5061015660043561039a565b60408051600160a060020a0390931683526bffffffffffffffffffffffff90911660208301528051918290030190f35b34801561019257600080fd5b5061019b6103d8565b005b3480156101a957600080fd5b506101b261043b565b60408051600160a060020a039092168252519081900360200190f35b3480156101da57600080fd5b506101e361044a565b60408051918252519081900360200190f35b34801561020157600080fd5b506101e3610450565b34801561021657600080fd5b5061019b610456565b34801561022b57600080fd5b506101b26104e0565b34801561024057600080fd5b506102496104ef565b6040518082600281111561025957fe5b60ff16815260200191505060405180910390f35b34801561027957600080fd5b506101e3600160a060020a03600435166104ff565b34801561029a57600080fd5b506040805160206004803580820135838102808601850190965280855261019b95369593946024949385019291829185019084908082843750506040805187358901803560208181028481018201909552818452989b9a9989019892975090820195509350839250850190849080828437509497506105119650505050505050565b34801561032857600080fd5b5061019b600160a060020a03600435166106d3565b61019b600160a060020a0360043516610767565b34801561035d57600080fd5b506100ff6107e7565b34801561037257600080fd5b5061019b600160a060020a03600435166107f0565b600254610100900460ff1681565b604081565b60038054829081106103a857fe5b600091825260209091200154600160a060020a038116915060a060020a90046bffffffffffffffffffffffff1682565b600054600160a060020a031633146103ef57600080fd5b600060055460a060020a900460ff16600281111561040957fe5b1461041357600080fd5b600254610100900460ff16151561042957600080fd5b6104316108a5565b610439610a8d565b565b600554600160a060020a031681565b60035490565b60015481565b600054600160a060020a0316331461046d57600080fd5b600060055460a060020a900460ff16600281111561048757fe5b1461049157600080fd5b6005805474ff0000000000000000000000000000000000000000191660a060020a1790556040517f599d8e5a83cffb867d051598c4d70e805d59802d8081c1c7d6dffc5b6aca2b8990600090a1565b600054600160a060020a031681565b60055460a060020a900460ff1681565b60046020526000908152604090205481565b600080548190600160a060020a0316331461052b57600080fd5b600254610100900460ff161561054057600080fd5b6003541561054d57600080fd5b8351151561055a57600080fd5b83516040101561056957600080fd5b825184511461057757600080fd5b5060005b83518160ff1610156106af578351600090859060ff841690811061059b57fe5b60209081029091010151600160a060020a03161461066c5760036040805190810160405280868460ff168151811015156105d157fe5b90602001906020020151600160a060020a03168152602001858460ff168151811015156105fa57fe5b60209081029091018101516bffffffffffffffffffffffff9081169092528354600181018555600094855293819020835194018054939091015190911660a060020a02600160a060020a0393841673ffffffffffffffffffffffffffffffffffffffff19909316929092179092161790555b6106a5838260ff1681518110151561068057fe5b6020908102909101015183906bffffffffffffffffffffffff1663ffffffff610b6316565b915060010161057b565b6001548211156106be57600080fd5b50506002805461ff0019166101001790555050565b600054600160a060020a031633146106ea57600080fd5b600160a060020a03811615156106ff57600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b600054600160a060020a0316331461077e57600080fd5b600060055460a060020a900460ff16600281111561079857fe5b146107a257600080fd5b600160a060020a0381166000908152600460205260409020546107cb903463ffffffff610b6316565b600160a060020a03909116600090815260046020526040902055565b60025460ff1681565b6000600160055460a060020a900460ff16600281111561080c57fe5b1461081657600080fd5b50600160a060020a038116600081815260046020526040808220805490839055905190929183156108fc02918491818181858888f19350505050158015610861573d6000803e3d6000fd5b50604080518281529051600160a060020a038416917fd7dee2702d63ad89917b6a4da9981c90c4d24f8c2bdfd64c604ecae57d8d0651919081900360200190a25050565b6002546000908190819060ff161561091e57604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f416c726561647920646973747269627574656400000000000000000000000000604482015290519081900360640190fd5b303192506000831161099157604080517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601660248201527f4e6f20657468657220746f206469737472696275746500000000000000000000604482015290519081900360640190fd5b6002805460ff19166001179055600091505b60035460ff83161015610a5f576109ff6001546109f360038560ff168154811015156109cb57fe5b600091825260209091200154869060a060020a90046bffffffffffffffffffffffff16610b76565b9063ffffffff610b9f16565b905060038260ff16815481101515610a1357fe5b6000918252602082200154604051600160a060020a039091169183156108fc02918491818181858888f19350505050158015610a53573d6000803e3d6000fd5b506001909101906109a3565b6040517fb8b570f14eb44ed11fb6b2ac2ff61ceb5b29da5ae60d33184ae20b08f3a47c8990600090a1505050565b600054600160a060020a03163314610aa457600080fd5b600060055460a060020a900460ff166002811115610abe57fe5b14610ac857600080fd5b6005805474ff00000000000000000000000000000000000000001916740200000000000000000000000000000000000000001790556040517f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a90600090a1600554604051600160a060020a0390911690303180156108fc02916000818181858888f19350505050158015610b60573d6000803e3d6000fd5b50565b81810182811015610b7057fe5b92915050565b6000821515610b8757506000610b70565b50818102818382811515610b9757fe5b0414610b7057fe5b60008183811515610bac57fe5b0493925050505600a165627a7a72305820ca64f99371fe970c533c3f6f8bbf9f4f22c9fb72b631e9c41c555dbc3e9351de0029",
+  "sourceMap": "304:440:24:-;;;392:132;8:9:-1;5:2;;;30:1;27;20:12;5:2;392:132:24;;;;;;;;;;;;;;;;;;;501:5:32;:18;;-1:-1:-1;;;;;;501:18:32;509:10;501:18;;;392:132:24;;793:11:4;;;785:20;;;;;;811:5;:14;-1:-1:-1;;;;;743:21:29;;;;735:30;;;;;;771:6;:16;;-1:-1:-1;;;;;;771:16:29;-1:-1:-1;;;;;771:16:29;;;;;;;;-1:-1:-1;;;;;;793:20:29;;;-1:-1:-1;304:440:24;;-1:-1:-1;304:440:24;;-1:-1:-1;304:440:24;;",
+  "deployedSourceMap": "304:440:24:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;597:23:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;597:23:4;;;;;;;;;;;;;;;;;;;;;;456:38;;8:9:-1;5:2;;;30:1;27;20:12;5:2;456:38:4;;;;;;;;;;;;;;;;;;;;;;;684:23;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;684:23:4;;;;;;;;;-1:-1:-1;;;;;684:23:4;;;;;;;;;;;;;;;;;;;;;;528:214:24;;8:9:-1;5:2;;;30:1;27;20:12;5:2;528:214:24;;;;;;479:21:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;479:21:29;;;;;;;;-1:-1:-1;;;;;479:21:29;;;;;;;;;;;;;;834:88:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;834:88:4;;;;;;;;;;;;;;;;;;;;546:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;546:20:4;;;;1207:139:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1207:139:29;;;;238:20:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:32;;;;504:18:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;504:18:29;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;430:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;430:45:29;-1:-1:-1;;;;;430:45:29;;;;;926:604:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;926:604:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;926:604:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;926:604:4;;;;-1:-1:-1;926:604:4;-1:-1:-1;926:604:4;;-1:-1:-1;926:604:4;;;;;;;;;-1:-1:-1;926:604:4;;-1:-1:-1;926:604:4;;-1:-1:-1;;;;;;;926:604:4;832:174:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;832:174:32;-1:-1:-1;;;;;832:174:32;;;;;872:163:29;;-1:-1:-1;;;;;872:163:29;;;;;570:23:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;570:23:4;;;;1400:248:29;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;1400:248:29;-1:-1:-1;;;;;1400:248:29;;;;;597:23:4;;;;;;;;;:::o;456:38::-;492:2;456:38;:::o;684:23::-;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;684:23:4;;;-1:-1:-1;;;;684:23:4;;;;;:::o;528:214:24:-;653:5:32;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;585:12:24;576:5;;-1:-1:-1;;;576:5:24;;;;:21;;;;;;;;;568:30;;;;;;612:11;;;;;;;604:20;;;;;;;;631:18;:16;:18::i;:::-;686:13;:11;:13::i;:::-;528:214::o;479:21:29:-;;;-1:-1:-1;;;;;479:21:29;;:::o;834:88:4:-;903:7;:14;834:88;:::o;546:20::-;;;;:::o;1207:139:29:-;653:5:32;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;1272:12:29;1263:5;;-1:-1:-1;;;1263:5:29;;;;:21;;;;;;;;;1255:30;;;;;;1291:5;:23;;-1:-1:-1;;1291:23:29;-1:-1:-1;;;1291:23:29;;;1325:16;;;;-1:-1:-1;;1325:16:29;1207:139::o;238:20:32:-;;;-1:-1:-1;;;;;238:20:32;;:::o;504:18:29:-;;;-1:-1:-1;;;504:18:29;;;;;:::o;430:45::-;;;;;;;;;;;;;:::o;926:604:4:-;1190:16;653:5:32;;1190:16:4;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;1015:11:4;;;;;;;1014:12;1006:21;;;;;;1041:7;:14;:19;1033:28;;;;;;1075:13;;:18;;1067:27;;;;;;1108:13;;492:2;-1:-1:-1;1108:28:4;1100:37;;;;;;1168:14;;1151:13;;:31;1143:40;;;;;;-1:-1:-1;1227:1:4;1213:255;1234:6;:13;1230:1;:17;;;1213:255;;;1266:9;;1287:1;;1266:6;;:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1266:23:4;;1262:147;;1357:7;1370:29;;;;;;;;;1377:6;1384:1;1377:9;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;1370:29:4;;;;;1388:7;1396:1;1388:10;;;;;;;;;;;;;;;;;;;;;;1370:29;;;;;;;27:10:-1;;39:1;23:18;;45:23;;-1:-1;1357:43:4;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;1357:43:4;-1:-1:-1;;;;;1357:43:4;;;-1:-1:-1;;1357:43:4;;;;;;;;;;;;;1262:147;1428:33;1449:7;1457:1;1449:10;;;;;;;;;;;;;;;;;;;;;1428:8;;1441:19;;1428:33;:12;:33;:::i;:::-;1417:44;-1:-1:-1;1249:3:4;;1213:255;;;1494:5;;1482:17;;;1474:26;;;;;;-1:-1:-1;;1507:11:4;:18;;-1:-1:-1;;1507:18:4;;;;;-1:-1:-1;;926:604:4:o;832:174:32:-;653:5;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;-1:-1:-1;;;;;908:22:32;;;;900:31;;;;;;963:5;;;942:37;;-1:-1:-1;;;;;942:37:32;;;;963:5;;;942:37;;;985:5;:16;;-1:-1:-1;;985:16:32;-1:-1:-1;;;;;985:16:32;;;;;;;;;;832:174::o;872:163:29:-;653:5:32;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;955:12:29;946:5;;-1:-1:-1;;;946:5:29;;;;:21;;;;;;;;;938:30;;;;;;-1:-1:-1;;;;;996:19:29;;;;;;:9;:19;;;;;;:34;;1020:9;996:34;:23;:34;:::i;:::-;-1:-1:-1;;;;;974:19:29;;;;;;;:9;:19;;;;;:56;872:163::o;570:23:4:-;;;;;;:::o;1400:248:29:-;1486:22;1464:15;1455:5;;-1:-1:-1;;;1455:5:29;;;;:24;;;;;;;;;1447:33;;;;;;-1:-1:-1;;;;;;1511:19:29;;;;;;:9;:19;;;;;;;;1536:23;;;;1565:33;;1511:19;;;1565:33;;;;;1511:19;;1565:33;1511:19;1565:33;1511:19;;1565:33;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;1609:34:29;;;;;;;;-1:-1:-1;;;;;1609:34:29;;;;;;;;;;;;;1400:248;;:::o;1707:437:4:-;1753:11;;1794:15;;;;;;1753:11;;1752:12;1744:44;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1812:4;:12;;-1:-1:-1;1849:1:4;1839:11;;1831:46;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1883:11;:18;;-1:-1:-1;;1883:18:4;1897:4;1883:18;;;:11;;-1:-1:-1;1908:177:4;1930:7;:14;1926:18;;;;1908:177;;;1982:49;2025:5;;1982:38;2002:7;2010:1;2002:10;;;;;;;;;;;;;;;;;;;;;:16;1982:7;;-1:-1:-1;;;2002:16:4;;;;1982:11;:38::i;:::-;:42;:49;:42;:49;:::i;:::-;1959:72;;2040:7;2048:1;2040:10;;;;;;;;;;;;;;;;;;;;:15;:38;;-1:-1:-1;;;;;2040:15:4;;;;:38;;;;;2065:12;;2040:38;:10;:38;2065:12;2040:15;:38;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;-1:-1;1946:3:4;;;;;1908:177;;;2096:13;;;;;;;1707:437;;;:::o;1039:164:29:-;653:5:32;;-1:-1:-1;;;;;653:5:32;639:10;:19;631:28;;;;;;1096:12:29;1087:5;;-1:-1:-1;;;1087:5:29;;;;:21;;;;;;;;;1079:30;;;;;;1115:5;:20;;-1:-1:-1;;1115:20:29;;;;;1146:8;;;;-1:-1:-1;;1146:8:29;1160:6;;:38;;-1:-1:-1;;;;;1160:6:29;;;;1184:4;1176:21;1160:38;;;;;:6;:38;:6;:38;1176:21;1160:6;:38;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;1160:38:29;1039:164::o;1008:123:31:-;1087:5;;;1105:6;;;;1098:14;;;;1008:123;;;;:::o;203:167::-;261:9;282:6;;278:35;;;-1:-1:-1;305:1:31;298:8;;278:35;-1:-1:-1;322:5:31;;;326:1;322;:5;340;;;;;;;;:10;333:18;;;452:272;510:7;718:1;714;:5;;;;;;;;;452:272;-1:-1:-1;;;452:272:31:o",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/math/SafeMath.sol\";\nimport \"openzeppelin-solidity/contracts/crowdsale/distribution/utils/RefundVault.sol\";\nimport \"../common/HolderBase.sol\";\n\n/**\n * @title MultiHolderVault\n * @dev This contract distribute ether to multiple address.\n */\ncontract MultiHolderVault is HolderBase, RefundVault {\n  using SafeMath for uint256;\n\n  function MultiHolderVault(address _wallet, uint256 _ratioCoeff)\n    public\n    HolderBase(_ratioCoeff)\n    RefundVault(_wallet)\n  {}\n\n  function close() public onlyOwner {\n    require(state == State.Active);\n    require(initialized);\n\n    super.distribute(); // distribute ether to holders\n    super.close(); // transfer remaining ether to wallet\n  }\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/vault/MultiHolderVault.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/vault/MultiHolderVault.sol",
+    "exportedSymbols": {
+      "MultiHolderVault": [
+        4024
+      ]
+    },
+    "id": 4025,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3972,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:24"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 3973,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 6471,
+        "src": "26:59:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/crowdsale/distribution/utils/RefundVault.sol",
+        "file": "openzeppelin-solidity/contracts/crowdsale/distribution/utils/RefundVault.sol",
+        "id": 3974,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 6317,
+        "src": "86:86:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/common/HolderBase.sol",
+        "file": "../common/HolderBase.sol",
+        "id": 3975,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 624,
+        "src": "173:34:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3976,
+              "name": "HolderBase",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 623,
+              "src": "333:10:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_HolderBase_$623",
+                "typeString": "contract HolderBase"
+              }
+            },
+            "id": 3977,
+            "nodeType": "InheritanceSpecifier",
+            "src": "333:10:24"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3978,
+              "name": "RefundVault",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6316,
+              "src": "345:11:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_RefundVault_$6316",
+                "typeString": "contract RefundVault"
+              }
+            },
+            "id": 3979,
+            "nodeType": "InheritanceSpecifier",
+            "src": "345:11:24"
+          }
+        ],
+        "contractDependencies": [
+          623,
+          6316,
+          6526
+        ],
+        "contractKind": "contract",
+        "documentation": "@title MultiHolderVault\n@dev This contract distribute ether to multiple address.",
+        "fullyImplemented": true,
+        "id": 4024,
+        "linearizedBaseContracts": [
+          4024,
+          6316,
+          623,
+          6526
+        ],
+        "name": "MultiHolderVault",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3982,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3980,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6470,
+              "src": "367:8:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$6470",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "361:27:24",
+            "typeName": {
+              "id": 3981,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "380:7:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 3995,
+              "nodeType": "Block",
+              "src": "522:2:24",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 3996,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3989,
+                    "name": "_ratioCoeff",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3986,
+                    "src": "482:11:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 3990,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3988,
+                  "name": "HolderBase",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 623,
+                  "src": "471:10:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_HolderBase_$623_$",
+                    "typeString": "type(contract HolderBase)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "471:23:24"
+              },
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3992,
+                    "name": "_wallet",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3984,
+                    "src": "511:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 3993,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3991,
+                  "name": "RefundVault",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6316,
+                  "src": "499:11:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_RefundVault_$6316_$",
+                    "typeString": "type(contract RefundVault)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "499:20:24"
+              }
+            ],
+            "name": "MultiHolderVault",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3987,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3984,
+                  "name": "_wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3996,
+                  "src": "418:15:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3983,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "418:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3986,
+                  "name": "_ratioCoeff",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3996,
+                  "src": "435:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3985,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "417:38:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3994,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "522:0:24"
+            },
+            "scope": 4024,
+            "src": "392:132:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4022,
+              "nodeType": "Block",
+              "src": "562:180:24",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_enum$_State_$6160",
+                          "typeString": "enum RefundVault.State"
+                        },
+                        "id": 4005,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 4002,
+                          "name": "state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6168,
+                          "src": "576:5:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$6160",
+                            "typeString": "enum RefundVault.State"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4003,
+                            "name": "State",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6160,
+                            "src": "585:5:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_enum$_State_$6160_$",
+                              "typeString": "type(enum RefundVault.State)"
+                            }
+                          },
+                          "id": 4004,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "Active",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "585:12:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$6160",
+                            "typeString": "enum RefundVault.State"
+                          }
+                        },
+                        "src": "576:21:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4001,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8027,
+                        8028
+                      ],
+                      "referencedDeclaration": 8027,
+                      "src": "568:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4006,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "568:30:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4007,
+                  "nodeType": "ExpressionStatement",
+                  "src": "568:30:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4009,
+                        "name": "initialized",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 349,
+                        "src": "612:11:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4008,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8027,
+                        8028
+                      ],
+                      "referencedDeclaration": 8027,
+                      "src": "604:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4010,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "604:20:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4011,
+                  "nodeType": "ExpressionStatement",
+                  "src": "604:20:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4012,
+                        "name": "super",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8048,
+                        "src": "631:5:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_super$_MultiHolderVault_$4024",
+                          "typeString": "contract super MultiHolderVault"
+                        }
+                      },
+                      "id": 4014,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "distribute",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 554,
+                      "src": "631:16:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 4015,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "631:18:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4016,
+                  "nodeType": "ExpressionStatement",
+                  "src": "631:18:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4017,
+                        "name": "super",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8048,
+                        "src": "686:5:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_super$_MultiHolderVault_$4024",
+                          "typeString": "contract super MultiHolderVault"
+                        }
+                      },
+                      "id": 4019,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "close",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6258,
+                      "src": "686:11:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 4020,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "686:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4021,
+                  "nodeType": "ExpressionStatement",
+                  "src": "686:13:24"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4023,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 3999,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3998,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6500,
+                  "src": "552:9:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "552:9:24"
+              }
+            ],
+            "name": "close",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3997,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:2:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4000,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "562:0:24"
+            },
+            "scope": 4024,
+            "src": "528:214:24",
+            "stateMutability": "nonpayable",
+            "superFunction": 6258,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4025,
+        "src": "304:440:24"
+      }
+    ],
+    "src": "0:745:24"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/vault/MultiHolderVault.sol",
+    "exportedSymbols": {
+      "MultiHolderVault": [
+        4024
+      ]
+    },
+    "id": 4025,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3972,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:24"
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "file": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+        "id": 3973,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 6471,
+        "src": "26:59:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "openzeppelin-solidity/contracts/crowdsale/distribution/utils/RefundVault.sol",
+        "file": "openzeppelin-solidity/contracts/crowdsale/distribution/utils/RefundVault.sol",
+        "id": 3974,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 6317,
+        "src": "86:86:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/common/HolderBase.sol",
+        "file": "../common/HolderBase.sol",
+        "id": 3975,
+        "nodeType": "ImportDirective",
+        "scope": 4025,
+        "sourceUnit": 624,
+        "src": "173:34:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3976,
+              "name": "HolderBase",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 623,
+              "src": "333:10:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_HolderBase_$623",
+                "typeString": "contract HolderBase"
+              }
+            },
+            "id": 3977,
+            "nodeType": "InheritanceSpecifier",
+            "src": "333:10:24"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 3978,
+              "name": "RefundVault",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6316,
+              "src": "345:11:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_RefundVault_$6316",
+                "typeString": "contract RefundVault"
+              }
+            },
+            "id": 3979,
+            "nodeType": "InheritanceSpecifier",
+            "src": "345:11:24"
+          }
+        ],
+        "contractDependencies": [
+          623,
+          6316,
+          6526
+        ],
+        "contractKind": "contract",
+        "documentation": "@title MultiHolderVault\n@dev This contract distribute ether to multiple address.",
+        "fullyImplemented": true,
+        "id": 4024,
+        "linearizedBaseContracts": [
+          4024,
+          6316,
+          623,
+          6526
+        ],
+        "name": "MultiHolderVault",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3982,
+            "libraryName": {
+              "contractScope": null,
+              "id": 3980,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 6470,
+              "src": "367:8:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$6470",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "361:27:24",
+            "typeName": {
+              "id": 3981,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "380:7:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 3995,
+              "nodeType": "Block",
+              "src": "522:2:24",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 3996,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3989,
+                    "name": "_ratioCoeff",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3986,
+                    "src": "482:11:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 3990,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3988,
+                  "name": "HolderBase",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 623,
+                  "src": "471:10:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_HolderBase_$623_$",
+                    "typeString": "type(contract HolderBase)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "471:23:24"
+              },
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 3992,
+                    "name": "_wallet",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3984,
+                    "src": "511:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 3993,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3991,
+                  "name": "RefundVault",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6316,
+                  "src": "499:11:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_RefundVault_$6316_$",
+                    "typeString": "type(contract RefundVault)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "499:20:24"
+              }
+            ],
+            "name": "MultiHolderVault",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3987,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3984,
+                  "name": "_wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3996,
+                  "src": "418:15:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3983,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "418:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3986,
+                  "name": "_ratioCoeff",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3996,
+                  "src": "435:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3985,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "417:38:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 3994,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "522:0:24"
+            },
+            "scope": 4024,
+            "src": "392:132:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 4022,
+              "nodeType": "Block",
+              "src": "562:180:24",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_enum$_State_$6160",
+                          "typeString": "enum RefundVault.State"
+                        },
+                        "id": 4005,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 4002,
+                          "name": "state",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6168,
+                          "src": "576:5:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$6160",
+                            "typeString": "enum RefundVault.State"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4003,
+                            "name": "State",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 6160,
+                            "src": "585:5:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_enum$_State_$6160_$",
+                              "typeString": "type(enum RefundVault.State)"
+                            }
+                          },
+                          "id": 4004,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberName": "Active",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "585:12:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$6160",
+                            "typeString": "enum RefundVault.State"
+                          }
+                        },
+                        "src": "576:21:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4001,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8027,
+                        8028
+                      ],
+                      "referencedDeclaration": 8027,
+                      "src": "568:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4006,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "568:30:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4007,
+                  "nodeType": "ExpressionStatement",
+                  "src": "568:30:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4009,
+                        "name": "initialized",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 349,
+                        "src": "612:11:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4008,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        8027,
+                        8028
+                      ],
+                      "referencedDeclaration": 8027,
+                      "src": "604:7:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4010,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "604:20:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4011,
+                  "nodeType": "ExpressionStatement",
+                  "src": "604:20:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4012,
+                        "name": "super",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8048,
+                        "src": "631:5:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_super$_MultiHolderVault_$4024",
+                          "typeString": "contract super MultiHolderVault"
+                        }
+                      },
+                      "id": 4014,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "distribute",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 554,
+                      "src": "631:16:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 4015,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "631:18:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4016,
+                  "nodeType": "ExpressionStatement",
+                  "src": "631:18:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4017,
+                        "name": "super",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 8048,
+                        "src": "686:5:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_super$_MultiHolderVault_$4024",
+                          "typeString": "contract super MultiHolderVault"
+                        }
+                      },
+                      "id": 4019,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "close",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 6258,
+                      "src": "686:11:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
+                        "typeString": "function ()"
+                      }
+                    },
+                    "id": 4020,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "686:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4021,
+                  "nodeType": "ExpressionStatement",
+                  "src": "686:13:24"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4023,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 3999,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 3998,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 6500,
+                  "src": "552:9:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "552:9:24"
+              }
+            ],
+            "name": "close",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3997,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:2:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4000,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "562:0:24"
+            },
+            "scope": 4024,
+            "src": "528:214:24",
+            "stateMutability": "nonpayable",
+            "superFunction": 6258,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4025,
+        "src": "304:440:24"
+      }
+    ],
+    "src": "0:745:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {
+    "777": {
+      "events": {
+        "0x1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "Closed",
+          "type": "event"
+        },
+        "0x599d8e5a83cffb867d051598c4d70e805d59802d8081c1c7d6dffc5b6aca2b89": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "RefundsEnabled",
+          "type": "event"
+        },
+        "0xd7dee2702d63ad89917b6a4da9981c90c4d24f8c2bdfd64c604ecae57d8d0651": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "beneficiary",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "weiAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Refunded",
+          "type": "event"
+        },
+        "0xb8b570f14eb44ed11fb6b2ac2ff61ceb5b29da5ae60d33184ae20b08f3a47c89": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "Distributed",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4bb44b9bc812cef8d3321023b7cf6d5baa49afd3",
+      "transactionHash": "0x0fc8801f1ccf56218bc0945cbb2e71591468be6237ee1e9d05d67515ef7f01f1"
+    }
+  },
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-07T12:04:22.560Z"
+}

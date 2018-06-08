@@ -1,0 +1,420 @@
+{
+  "contractName": "ForceEther",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405260b5806100126000396000f300608060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663f5074f4181146043575b600080fd5b348015604e57600080fd5b50606e73ffffffffffffffffffffffffffffffffffffffff600435166070565b005b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058208f19087eb3b0a788b1f0c65935ae7ed23b34a3097c3c7c769932ae9cbe77b4dd0029",
+  "deployedBytecode": "0x608060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663f5074f4181146043575b600080fd5b348015604e57600080fd5b50606e73ffffffffffffffffffffffffffffffffffffffff600435166070565b005b8073ffffffffffffffffffffffffffffffffffffffff16ff00a165627a7a723058208f19087eb3b0a788b1f0c65935ae7ed23b34a3097c3c7c769932ae9cbe77b4dd0029",
+  "sourceMap": "234:157:55:-;;;;;;;;;",
+  "deployedSourceMap": "234:157:55:-;;;;;;;;;;;;;;;;;;;;;;;303:86;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;303:86:55;;;;;;;;;;373:10;360:24;;",
+  "source": "pragma solidity ^0.4.18;\n\n\n// @title Force Ether into a contract.\n// @notice  even\n// if the contract is not payable.\n// @notice To use, construct the contract with the target as argument.\n// @author Remco Bloemen <remco@neufund.org>\ncontract ForceEther {\n\n  function ForceEther() public payable { }\n\n  function destroyAndSend(address _recipient) public {\n    selfdestruct(_recipient);\n  }\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ForceEther.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ForceEther.sol",
+    "exportedSymbols": {
+      "ForceEther": [
+        7938
+      ]
+    },
+    "id": 7939,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7923,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:55"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7938,
+        "linearizedBaseContracts": [
+          7938
+        ],
+        "name": "ForceEther",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7926,
+              "nodeType": "Block",
+              "src": "296:3:55",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7927,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "ForceEther",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7924,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "278:2:55"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 7925,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "296:0:55"
+            },
+            "scope": 7938,
+            "src": "259:40:55",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7936,
+              "nodeType": "Block",
+              "src": "354:35:55",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7933,
+                        "name": "_recipient",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7929,
+                        "src": "373:10:55",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 7932,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12146,
+                      "src": "360:12:55",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 7934,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "360:24:55",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7935,
+                  "nodeType": "ExpressionStatement",
+                  "src": "360:24:55"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7937,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "destroyAndSend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7930,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7929,
+                  "name": "_recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7937,
+                  "src": "327:18:55",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7928,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "327:7:55",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "326:20:55"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7931,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "354:0:55"
+            },
+            "scope": 7938,
+            "src": "303:86:55",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7939,
+        "src": "234:157:55"
+      }
+    ],
+    "src": "0:392:55"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/ForceEther.sol",
+    "exportedSymbols": {
+      "ForceEther": [
+        7938
+      ]
+    },
+    "id": 7939,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7923,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:55"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7938,
+        "linearizedBaseContracts": [
+          7938
+        ],
+        "name": "ForceEther",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7926,
+              "nodeType": "Block",
+              "src": "296:3:55",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7927,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "ForceEther",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7924,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "278:2:55"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 7925,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "296:0:55"
+            },
+            "scope": 7938,
+            "src": "259:40:55",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 7936,
+              "nodeType": "Block",
+              "src": "354:35:55",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 7933,
+                        "name": "_recipient",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7929,
+                        "src": "373:10:55",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 7932,
+                      "name": "selfdestruct",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12146,
+                      "src": "360:12:55",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 7934,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "360:24:55",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 7935,
+                  "nodeType": "ExpressionStatement",
+                  "src": "360:24:55"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 7937,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "destroyAndSend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7930,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7929,
+                  "name": "_recipient",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7937,
+                  "src": "327:18:55",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 7928,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "327:7:55",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "326:20:55"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 7931,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "354:0:55"
+            },
+            "scope": 7938,
+            "src": "303:86:55",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7939,
+        "src": "234:157:55"
+      }
+    ],
+    "src": "0:392:55"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-01T09:11:30.185Z"
+}

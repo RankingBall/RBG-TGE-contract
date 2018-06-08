@@ -1,0 +1,303 @@
+{
+  "contractName": "HasNoEtherTest",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "reclaimEther",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x608060405260008054600160a060020a03191633179055341561002157600080fd5b6101e8806100306000396000f3006080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146100655780639f727c2714610096578063f2fde38b146100ad575b34801561006257600080fd5b50005b34801561007157600080fd5b5061007a6100ce565b60408051600160a060020a039092168252519081900360200190f35b3480156100a257600080fd5b506100ab6100dd565b005b3480156100b957600080fd5b506100ab600160a060020a0360043516610128565b600054600160a060020a031681565b600054600160a060020a031633146100f457600080fd5b60008054604051600160a060020a0390911691303180156108fc02929091818181858888f19350505050151561012657fe5b565b600054600160a060020a0316331461013f57600080fd5b600160a060020a038116151561015457600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a72305820cafea4959565e72318afa63a1bf1be8975c9afe818efd335db1487e5b16f09560029",
+  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b81146100655780639f727c2714610096578063f2fde38b146100ad575b34801561006257600080fd5b50005b34801561007157600080fd5b5061007a6100ce565b60408051600160a060020a039092168252519081900360200190f35b3480156100a257600080fd5b506100ab6100dd565b005b3480156100b957600080fd5b506100ab600160a060020a0360043516610128565b600054600160a060020a031681565b600054600160a060020a031633146100f457600080fd5b60008054604051600160a060020a0390911691303180156108fc02929091818181858888f19350505050151561012657fe5b565b600054600160a060020a0316331461013f57600080fd5b600160a060020a038116151561015457600080fd5b60008054604051600160a060020a03808516939216917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03929092169190911790555600a165627a7a72305820cafea4959565e72318afa63a1bf1be8975c9afe818efd335db1487e5b16f09560029",
+  "sourceMap": "66:153:56:-;;;501:5:80;:18;;-1:-1:-1;;;;;;501:18:80;509:10;501:18;;;970:9:76;:14;962:23;;;;;;66:153:56;;;;;;",
+  "deployedSourceMap": "66:153:56:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;66:153:56;;238:20:80;;8:9:-1;5:2;;;30:1;27;20:12;5:2;238:20:80;;;;;;;;-1:-1:-1;;;;;238:20:80;;;;;;;;;;;;;;1202:86:76;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1202:86:76;;;;;;832:169:80;;8:9:-1;5:2;;;30:1;27;20:12;5:2;-1:-1;832:169:80;-1:-1:-1;;;;;832:169:80;;;;;238:20;;;-1:-1:-1;;;;;238:20:80;;:::o;1202:86:76:-;653:5:80;;-1:-1:-1;;;;;653:5:80;639:10;:19;631:28;;;;;;1258:5:76;;;:24;;-1:-1:-1;;;;;1258:5:76;;;;1269:4;:12;1258:24;;;;;1269:12;;1258:24;:5;:24;1269:12;1258:5;:24;;;;;;;1251:32;;;;;;1202:86::o;832:169:80:-;653:5;;-1:-1:-1;;;;;653:5:80;639:10;:19;631:28;;;;;;-1:-1:-1;;;;;908:22:80;;;;900:31;;;;;;958:5;;;937:37;;-1:-1:-1;;;;;937:37:80;;;;958:5;;;937:37;;;980:5;:16;;-1:-1:-1;;980:16:80;-1:-1:-1;;;;;980:16:80;;;;;;;;;;832:169::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport \"../ownership/HasNoEther.sol\";\n\n\ncontract HasNoEtherTest is HasNoEther {\n\n  // Constructor with explicit payable — should still fail\n  function HasNoEtherTest() public payable {\n  }\n\n}\n",
+  "sourcePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/HasNoEtherTest.sol",
+  "ast": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/HasNoEtherTest.sol",
+    "exportedSymbols": {
+      "HasNoEtherTest": [
+        7948
+      ]
+    },
+    "id": 7949,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7940,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:56"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/ownership/HasNoEther.sol",
+        "file": "../ownership/HasNoEther.sol",
+        "id": 7941,
+        "nodeType": "ImportDirective",
+        "scope": 7949,
+        "sourceUnit": 8988,
+        "src": "26:37:56",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7942,
+              "name": "HasNoEther",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 8987,
+              "src": "93:10:56",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_HasNoEther_$8987",
+                "typeString": "contract HasNoEther"
+              }
+            },
+            "id": 7943,
+            "nodeType": "InheritanceSpecifier",
+            "src": "93:10:56"
+          }
+        ],
+        "contractDependencies": [
+          8987,
+          9276
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7948,
+        "linearizedBaseContracts": [
+          7948,
+          8987,
+          9276
+        ],
+        "name": "HasNoEtherTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7946,
+              "nodeType": "Block",
+              "src": "211:5:56",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7947,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "HasNoEtherTest",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7944,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "193:2:56"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 7945,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:56"
+            },
+            "scope": 7948,
+            "src": "170:46:56",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7949,
+        "src": "66:153:56"
+      }
+    ],
+    "src": "0:220:56"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/mocks/HasNoEtherTest.sol",
+    "exportedSymbols": {
+      "HasNoEtherTest": [
+        7948
+      ]
+    },
+    "id": 7949,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7940,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:56"
+      },
+      {
+        "absolutePath": "/Users/pjh/workspace/rbg-crowdsale/project/contracts/base/zeppelin/ownership/HasNoEther.sol",
+        "file": "../ownership/HasNoEther.sol",
+        "id": 7941,
+        "nodeType": "ImportDirective",
+        "scope": 7949,
+        "sourceUnit": 8988,
+        "src": "26:37:56",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 7942,
+              "name": "HasNoEther",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 8987,
+              "src": "93:10:56",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_HasNoEther_$8987",
+                "typeString": "contract HasNoEther"
+              }
+            },
+            "id": 7943,
+            "nodeType": "InheritanceSpecifier",
+            "src": "93:10:56"
+          }
+        ],
+        "contractDependencies": [
+          8987,
+          9276
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7948,
+        "linearizedBaseContracts": [
+          7948,
+          8987,
+          9276
+        ],
+        "name": "HasNoEtherTest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7946,
+              "nodeType": "Block",
+              "src": "211:5:56",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 7947,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "HasNoEtherTest",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7944,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "193:2:56"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 7945,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "211:0:56"
+            },
+            "scope": 7948,
+            "src": "170:46:56",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 7949,
+        "src": "66:153:56"
+      }
+    ],
+    "src": "0:220:56"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-01T09:11:30.185Z"
+}
